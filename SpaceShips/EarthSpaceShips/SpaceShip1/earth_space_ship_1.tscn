@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://ddubkvlllqpdh"]
+
+[ext_resource type="Script" uid="uid://b0hmq7owcbwkm" path="res://SpaceShips/EarthSpaceShips/SpaceShip1/earth_space_ship_1.gd" id="1_omsxj"]
+[ext_resource type="Texture2D" uid="uid://msv2fbrsf5fb" path="res://SpaceShips/EarthSpaceShips/Texture/SpaceShip11.png" id="2_omsxj"]
+[ext_resource type="Texture2D" uid="uid://c2unjlofcivss" path="res://SpaceShips/EarthSpaceShips/Texture/SpaceShip12.png" id="3_2ikls"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2ikls"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kfx4r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_omsxj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2ikls")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[node name="EarthSpaceShip1" type="Area2D" groups=["Earth", "SpaceShip"]]
+script = ExtResource("1_omsxj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_2ikls")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_kfx4r")
+animation = &"Idle"
+autoplay = "Idle"
+frame_progress = 0.35350332

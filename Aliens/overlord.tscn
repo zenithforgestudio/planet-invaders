@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b515jwwo78bff"]
+
+[ext_resource type="Texture2D" uid="uid://cwhnx0lmbywce" path="res://UI/Cephalid/Cephalid Portrait1.png" id="1_04sio"]
+[ext_resource type="Script" uid="uid://cnscqxcbqtiol" path="res://Aliens/overlord2.gd" id="1_swoxk"]
+
+[node name="Overlord" type="CharacterBody2D"]
+script = ExtResource("1_swoxk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_04sio")
+
+[node name="Camera2D" type="Camera2D" parent="."]

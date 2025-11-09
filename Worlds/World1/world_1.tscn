@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=3 uid="uid://dwyu75t6va5vf"]
+
+[ext_resource type="Texture2D" uid="uid://ctxh4n3t4bhrb" path="res://Worlds/World1/Space BackgroundDark.png" id="1_jxoej"]
+[ext_resource type="Texture2D" uid="uid://c5gx6pay6rti0" path="res://Worlds/World1/Space BackgroundStars.png" id="2_xguo8"]
+[ext_resource type="Texture2D" uid="uid://chasyv6pqpmn5" path="res://Worlds/World1/Space BackgroundNebulae.png" id="3_vd6q0"]
+[ext_resource type="Texture2D" uid="uid://ce81xpxwetipp" path="res://Worlds/World1/Space BackgroundDust - Copy.png" id="4_xguo8"]
+[ext_resource type="Texture2D" uid="uid://d2bmgnq8f6xc4" path="res://Worlds/World1/Space BackgroundPlanets.png" id="5_0mx4r"]
+[ext_resource type="PackedScene" uid="uid://b515jwwo78bff" path="res://Aliens/overlord.tscn" id="6_xguo8"]
+[ext_resource type="PackedScene" uid="uid://ddubkvlllqpdh" path="res://SpaceShips/EarthSpaceShips/SpaceShip1/earth_space_ship_1.tscn" id="7_vd6q0"]
+
+[node name="World1" type="Node2D"]
+
+[node name="ParallaxHolder" type="Node2D" parent="."]
+
+[node name="Parallax2D" type="Parallax2D" parent="ParallaxHolder"]
+scroll_offset = Vector2(-1, -1)
+repeat_size = Vector2(1000, 1000)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxHolder/Parallax2D"]
+texture = ExtResource("1_jxoej")
+
+[node name="Parallax2D2" type="Parallax2D" parent="ParallaxHolder"]
+scroll_scale = Vector2(0.1, 0.1)
+repeat_size = Vector2(1000, 1000)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxHolder/Parallax2D2"]
+texture = ExtResource("2_xguo8")
+
+[node name="Parallax2D3" type="Parallax2D" parent="ParallaxHolder"]
+scroll_scale = Vector2(0.15, 0.15)
+repeat_size = Vector2(1000, 1000)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxHolder/Parallax2D3"]
+texture = ExtResource("3_vd6q0")
+
+[node name="Parallax2D4" type="Parallax2D" parent="ParallaxHolder"]
+scroll_scale = Vector2(0.2, 0.2)
+repeat_size = Vector2(1000, 1000)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxHolder/Parallax2D4"]
+texture = ExtResource("4_xguo8")
+
+[node name="Parallax2D5" type="Parallax2D" parent="ParallaxHolder"]
+visible = false
+scroll_scale = Vector2(0.25, 0.25)
+repeat_size = Vector2(1000, 1000)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxHolder/Parallax2D5"]
+texture = ExtResource("5_0mx4r")
+
+[node name="Overlord" parent="." instance=ExtResource("6_xguo8")]
+
+[node name="EarthSpaceShip1" parent="." instance=ExtResource("7_vd6q0")]
+position = Vector2(362, 168)
+
+[node name="EarthSpaceShip2" parent="." instance=ExtResource("7_vd6q0")]
+position = Vector2(216, 375)
