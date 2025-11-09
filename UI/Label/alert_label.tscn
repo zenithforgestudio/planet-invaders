@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgcwl1fbj7gui"]
+
+[ext_resource type="Script" uid="uid://dyi361j1nydbh" path="res://UI/Label/alert_label.gd" id="1_58t2g"]
+
+[node name="AlertLabel" type="Label"]
+modulate = Color(1, 1, 1, 0)
+z_index = 20
+offset_right = 110.0
+offset_bottom = 23.0
+text = "Level Increase"
+horizontal_alignment = 1
+script = ExtResource("1_58t2g")

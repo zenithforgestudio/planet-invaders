@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://cejf7pb1nacq3"]
+
+[ext_resource type="Script" uid="uid://dtpmvdnptbi7f" path="res://Worlds/Lobby/parallax_holder.gd" id="1_h0enw"]
+[ext_resource type="Texture2D" uid="uid://bubk7r6pv6d2b" path="res://Worlds/BackGround/Space Background.png" id="1_rrsly"]
+[ext_resource type="Texture2D" uid="uid://djqhb5loabtsv" path="res://Worlds/BackGround/Space Background Stars.png" id="2_h0enw"]
+[ext_resource type="Texture2D" uid="uid://c6i7k478genmh" path="res://Worlds/BackGround/Space Background Nebulae.png" id="3_416if"]
+[ext_resource type="Texture2D" uid="uid://rx7i5jxmj6xy" path="res://Worlds/BackGround/Space Background Dust.png" id="4_7bibr"]
+[ext_resource type="Texture2D" uid="uid://p3lkybr7ymjw" path="res://Worlds/BackGround/Space Background Planets.png" id="5_tl1os"]
+
+[node name="ParallaxHolder" type="Node2D"]
+z_index = -100
+script = ExtResource("1_h0enw")
+stars_scroll_speed = 8
+dust_scroll_speed = 12
+planets_scroll_speed = 14
+
+[node name="BGDark1" type="Sprite2D" parent="."]
+position = Vector2(225, 450)
+texture = ExtResource("1_rrsly")
+
+[node name="BGStars1" type="Sprite2D" parent="."]
+position = Vector2(225, 450)
+texture = ExtResource("2_h0enw")
+
+[node name="BGStars2" type="Sprite2D" parent="."]
+position = Vector2(225, -450)
+texture = ExtResource("2_h0enw")
+
+[node name="BGNebulae1" type="Sprite2D" parent="."]
+position = Vector2(225, 450)
+texture = ExtResource("3_416if")
+
+[node name="BGNebulae2" type="Sprite2D" parent="."]
+position = Vector2(225, -450)
+texture = ExtResource("3_416if")
+
+[node name="BGDust1" type="Sprite2D" parent="."]
+position = Vector2(225, 450)
+texture = ExtResource("4_7bibr")
+
+[node name="BGDust2" type="Sprite2D" parent="."]
+position = Vector2(225, -450)
+texture = ExtResource("4_7bibr")
+
+[node name="BGPlanets1" type="Sprite2D" parent="."]
+position = Vector2(225, 450)
+texture = ExtResource("5_tl1os")
+
+[node name="BGPlanets2" type="Sprite2D" parent="."]
+position = Vector2(225, -450)
+texture = ExtResource("5_tl1os")

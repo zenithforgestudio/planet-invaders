@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dnm6x4ey75hg7"]
+
+[ext_resource type="Texture2D" uid="uid://dfv0vujolluo7" path="res://icon.svg" id="1_rk06o"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d8byv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_rk06o")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[node name="Alien1AnimatedSprite" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_d8byv")
+animation = &"Idle"
+autoplay = "Idle"

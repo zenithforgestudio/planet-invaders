@@ -1,0 +1,61 @@
+[gd_scene load_steps=12 format=3 uid="uid://c3lcctreyldyv"]
+
+[ext_resource type="Script" uid="uid://d01l5y7ii3i16" path="res://Objects/AlienGrinder/alien_grinder.gd" id="1_3yuri"]
+[ext_resource type="Texture2D" uid="uid://dsxerde5xf3iq" path="res://Objects/AlienGrinder/Base/AlienGrinder1 - Copy.png" id="2_ec03s"]
+[ext_resource type="Texture2D" uid="uid://77j8dk3chsns" path="res://Objects/AlienGrinder/Shredders/AlienGrinder1.png" id="3_cky5l"]
+[ext_resource type="Texture2D" uid="uid://ipto3wqshjja" path="res://PinkManaTexture2.png" id="3_xo70a"]
+[ext_resource type="Texture2D" uid="uid://cottllm42hls4" path="res://Objects/AlienGrinder/Pool/PinkManaTexture1.png" id="4_d2c5f"]
+[ext_resource type="Texture2D" uid="uid://bqcmpvq67o80d" path="res://Objects/AlienGrinder/Shredders/AlienGrinder2.png" id="4_xo70a"]
+[ext_resource type="Texture2D" uid="uid://bjfhgg4d48ofk" path="res://Objects/AlienGrinder/Shredders/AlienGrinder3.png" id="5_d2c5f"]
+[ext_resource type="Texture2D" uid="uid://cdmcst2hsbln7" path="res://Objects/AlienGrinder/Shredders/AlienGrinder4.png" id="6_eexdl"]
+[ext_resource type="AudioStream" uid="uid://emcs5uyqi3fq" path="res://SFX/AlienSplat/147017__justinvoke__splat.wav" id="6_gd3ir"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cky5l"]
+radius = 43.185646
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xo70a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_cky5l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_xo70a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_d2c5f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_eexdl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="AlienGrinder" type="Area2D" groups=["Grinder"]]
+z_index = 2
+script = ExtResource("1_3yuri")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_cky5l")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ec03s")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+offset_left = -28.0
+offset_top = -28.0
+offset_right = 52.0
+offset_bottom = 52.0
+fill_mode = 3
+texture_under = ExtResource("3_xo70a")
+texture_progress = ExtResource("4_d2c5f")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_xo70a")
+autoplay = "default"
+frame_progress = 0.77711254
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_gd3ir")

@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://0k43wa7ij5uj"]
+
+[ext_resource type="Script" uid="uid://cylbekwx5fdfm" path="res://Tiles/tile.gd" id="1_71op4"]
+
+[node name="Tile" type="TextureRect"]
+show_behind_parent = true
+custom_minimum_size = Vector2(16, 16)
+offset_right = 40.0
+offset_bottom = 40.0
+expand_mode = 1
+script = ExtResource("1_71op4")
+
+[node name="Panel" type="Panel" parent="."]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2

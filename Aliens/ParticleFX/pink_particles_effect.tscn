@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://by438khcaowue"]
+
+[ext_resource type="Texture2D" uid="uid://s2lydsbkl7bs" path="res://Aliens/ParticleFX/whiteSquare.png" id="1_bfgva"]
+[ext_resource type="Script" uid="uid://ciaw6ift0p8ny" path="res://Aliens/ParticleFX/pink_particles_effect.gd" id="2_fqj5o"]
+
+[node name="PinkParticlesEffect" type="CPUParticles2D"]
+emitting = false
+texture = ExtResource("1_bfgva")
+lifetime = 0.25
+one_shot = true
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector2(0, 1)
+spread = 90.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 50.0
+script = ExtResource("2_fqj5o")

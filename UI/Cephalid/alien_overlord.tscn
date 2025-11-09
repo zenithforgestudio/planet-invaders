@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://cgigx1bjf2086"]
+
+[ext_resource type="Shader" uid="uid://dxtd3n76r6ng2" path="res://Shaders/UniversalShader.gdshader" id="1_4nd1l"]
+[ext_resource type="Texture2D" uid="uid://cwhnx0lmbywce" path="res://UI/Cephalid/Cephalid Portrait1.png" id="2_i8tc4"]
+[ext_resource type="Texture2D" uid="uid://tec25k1705wt" path="res://UI/Cephalid/Cephalid Portrait2.png" id="3_cbqvj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yuvsp"]
+shader = ExtResource("1_4nd1l")
+shader_parameter/use_sprite_alpha = true
+shader_parameter/use_transition_texture = false
+shader_parameter/transition_type = 2
+shader_parameter/position = Vector2(0.5, 0.5)
+shader_parameter/invert = true
+shader_parameter/grid_size = Vector2(1, 1)
+shader_parameter/rotation_angle = 0.0
+shader_parameter/stagger = Vector2(0, 0)
+shader_parameter/stagger_frequency = Vector2i(2, 2)
+shader_parameter/flip_frequency = Vector2i(1, 1)
+shader_parameter/basic_feather = 0.0
+shader_parameter/use_mask_size = false
+shader_parameter/mask_size = Vector2(100, 100)
+shader_parameter/edges = 64
+shader_parameter/shape_feather = 0.1
+shader_parameter/sectors = 1
+shader_parameter/clock_feather = 0.0
+shader_parameter/progress = 1.06
+shader_parameter/progress_bias = Vector2(0, 0)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ey42i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_i8tc4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_cbqvj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="AlienOverlord" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_yuvsp")
+sprite_frames = SubResource("SpriteFrames_ey42i")
+autoplay = "default"

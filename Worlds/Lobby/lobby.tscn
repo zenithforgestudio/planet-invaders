@@ -1,0 +1,111 @@
+[gd_scene load_steps=8 format=3 uid="uid://c67bwjrh3ldmp"]
+
+[ext_resource type="Script" uid="uid://cr02u4xx3t6i7" path="res://Worlds/Lobby/lobby.gd" id="1_a4gjm"]
+[ext_resource type="AudioStream" uid="uid://dbo5rt4gjh4m3" path="res://SFX/AmbientMusic/391438__andrewkn__cosmic-glow.wav" id="3_a4gjm"]
+[ext_resource type="PackedScene" uid="uid://b6ok1e22srahk" path="res://Objects/AlienSpawner/pink_tank.tscn" id="4_eawp3"]
+[ext_resource type="PackedScene" uid="uid://by438khcaowue" path="res://Aliens/ParticleFX/pink_particles_effect.tscn" id="7_qia00"]
+[ext_resource type="PackedScene" uid="uid://c3lcctreyldyv" path="res://Objects/AlienGrinder/alien_grinder.tscn" id="8_6p4u0"]
+[ext_resource type="PackedScene" uid="uid://btrqqrwv0s02k" path="res://UI/Label/alien_label.tscn" id="9_ck21s"]
+[ext_resource type="PackedScene" uid="uid://cejf7pb1nacq3" path="res://Worlds/Lobby/parallax_holder.tscn" id="9_gef5a"]
+
+[node name="Lobby" type="Node2D"]
+script = ExtResource("1_a4gjm")
+
+[node name="BackGround" type="Sprite2D" parent="."]
+scale = Vector2(4, 4)
+centered = false
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+visible = false
+offset_top = 350.0
+offset_right = 491.0
+offset_bottom = 900.0
+mouse_filter = 2
+color = Color(0.70465624, 0.7999814, 0.93937635, 1)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_top = 350.0
+offset_right = 32.0
+offset_bottom = 900.0
+mouse_filter = 2
+color = Color(0.25882354, 0.2, 0.25490198, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+visible = false
+offset_left = 418.0
+offset_top = 350.0
+offset_right = 450.0
+offset_bottom = 900.0
+mouse_filter = 2
+color = Color(0.25882354, 0.2, 0.25490198, 1)
+
+[node name="RefillButton" type="Button" parent="."]
+offset_left = 83.0
+offset_top = 147.0
+offset_right = 130.0
+offset_bottom = 178.0
+text = "Refill"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_a4gjm")
+autoplay = true
+
+[node name="PinkTank" parent="." instance=ExtResource("4_eawp3")]
+
+[node name="DebugButton" type="Button" parent="."]
+offset_left = 91.0
+offset_top = 101.0
+offset_right = 149.0
+offset_bottom = 132.0
+text = "Debug"
+
+[node name="PinkParticlesEffect" parent="." instance=ExtResource("7_qia00")]
+modulate = Color(0.7372549, 0.2901961, 0.60784316, 1)
+z_index = 10
+amount = 4
+explosiveness = 1.0
+spread = 180.0
+initial_velocity_min = 20.0
+initial_velocity_max = 20.0
+
+[node name="AlienGrinder" parent="." instance=ExtResource("8_6p4u0")]
+
+[node name="ParallaxHolder" parent="." instance=ExtResource("9_gef5a")]
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(75, 175)
+
+[node name="AlienLabel" parent="Marker2D" instance=ExtResource("9_ck21s")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 1.0
+offset_bottom = 101.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0.4745098, 0.22745098, 0.5019608, 1)
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SaveButton" type="Button" parent="."]
+offset_left = 271.0
+offset_top = 70.0
+offset_right = 315.0
+offset_bottom = 101.0
+text = "Save"
+
+[node name="ResetButton" type="Button" parent="."]
+offset_left = 307.0
+offset_top = 131.0
+offset_right = 315.0
+offset_bottom = 139.0
+text = "Reset"
+
+[connection signal="pressed" from="RefillButton" to="." method="_on_refill_button_pressed"]
+[connection signal="pressed" from="DebugButton" to="." method="_on_debug_button_pressed"]
+[connection signal="pressed" from="SaveButton" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="ResetButton" to="." method="_on_reset_button_pressed"]
