@@ -1,3 +1,17 @@
-# Godot 4+ specific ignores
+# Godot cache and editor files
+.import/
 .godot/
-/android/
+.export/
+*.import
+*.cfg
+*.log
+*.tmp
+*.converted_res
+*.translation
+
+# OS junk files
+.DS_Store
+Thumbs.db
+
+# Exported builds
+bin/
