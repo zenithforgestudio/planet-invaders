@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bt0chqy8r1ca2"]
 
 [ext_resource type="Script" uid="uid://5d8rfk14ewdg" path="res://Tiles/tile_2.gd" id="1_hcpv6"]
-[ext_resource type="Texture2D" uid="uid://dxqdcpvrpi1ie" path="res://Tiles/LabTile.png" id="2_ror8s"]
+[ext_resource type="Texture2D" uid="uid://cr3o88m35kg0u" path="res://Tiles/LabTileInfected2.png" id="2_ror8s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m0bwe"]
 size = Vector2(88, 84)

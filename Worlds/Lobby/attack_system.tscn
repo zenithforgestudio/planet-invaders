@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3dgbt7w0lxr6"]
+
+[ext_resource type="PackedScene" uid="uid://bt0chqy8r1ca2" path="res://Tiles/tile_2.tscn" id="1_46srh"]
+[ext_resource type="Script" uid="uid://wb87rkvdg1vq" path="res://Worlds/Lobby/attack_system.gd" id="1_phgm1"]
+
+[node name="AttackSystem" type="Node2D"]
+script = ExtResource("1_phgm1")
+
+[node name="Tile2" parent="." groups=["AttackTile", "QuestTile"] instance=ExtResource("1_46srh")]
+position = Vector2(63, 169)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 26.0
+offset_top = 222.0
+offset_right = 104.0
+offset_bottom = 245.0
+text = "Quest Tile"

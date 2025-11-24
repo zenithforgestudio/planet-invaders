@@ -3,10 +3,11 @@ extends Node2D
 class_name Root
 
 @onready var back_ground: Sprite2D = $BackGround
-@onready var pink_tank: PinkTank = $PinkTank
+@onready var alien_eggs: EggSpawner = $AlienEggs
 @onready var pink_particles_effect: CPUParticles2D = $PinkParticlesEffect
-@onready var alien_grinder: Area2D = $AlienGrinder
 @onready var alien_label: AlienLabel = $Marker2D/AlienLabel
+@onready var mana_progress_bar: ProgressBar = $ManaProgressBar
+@onready var mutagen_label: Label = $MutagenLabel
 
 
 @export var gradient_colors: Array[Color] = [
@@ -21,13 +22,13 @@ const TILE = preload("uid://bt0chqy8r1ca2")
 const ALIEN_1 = preload("uid://4ful311i8fk8")
 
 
-const HORIZONTAL_TILE_OFFSET: int = 78
+const HORIZONTAL_TILE_OFFSET: int = 56
 const VERTICAL_TILE_OFFSET: int = 300
-const TILE_SIZE: int = 88
-const TILE_SPACING: int = 10
+const TILE_SIZE: int = 108
+const TILE_SPACING: int = 0
 
-var horizontal_size: int = 3
-var vertical_size: int = 3
+var horizontal_size: int = 4
+var vertical_size: int = 4
 var tiles
 var max_mana_value: int = 1000
 #var current_mana_value: int = 0
@@ -36,9 +37,10 @@ var max_mana_value: int = 1000
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	await get_tree().process_frame
+	mana_progress_bar.max_value = Global.max_mana_value
 	#Global._load()
 	#current_mana_value = Global.current_mana_value
-	alien_grinder.set_pool_value(Global.current_evolution_mana_value)
+	#alien_grinder.set_pool_value(Global.current_evolution_mana_value)
 	horizontal_size = Global.horizontal_tile_count
 	vertical_size = Global.vertical_tile_count
 	for i in range (vertical_size):
@@ -46,19 +48,32 @@ func _ready() -> void:
 			var tile: Tile = TILE.instantiate()
 			add_child(tile)
 			tile.position = Vector2(HORIZONTAL_TILE_OFFSET, VERTICAL_TILE_OFFSET) + Vector2(j * (TILE_SIZE + TILE_SPACING), i * (TILE_SIZE + TILE_SPACING))
-	tiles = get_tree().get_nodes_in_group("dropable")
+	tiles = get_tree().get_nodes_in_group("dropable") 
+	var filtered_tiles = []
+	for tile in tiles:
+		if not tile.is_in_group("QuestTile"):
+			filtered_tiles.append(tile)
+	tiles = filtered_tiles
+
 	
-	pink_tank.global_position = tiles[0].global_position
-	tiles[0].occupy(pink_tank)
-	pink_tank.set_progress_bar_value(Global.current_mana_value)
-	alien_grinder.global_position = tiles[1].global_position
-	tiles[1].occupy(alien_grinder)
+	alien_eggs.global_position = tiles[0].global_position
+	tiles[0].occupy(alien_eggs)
+	#alien_grinder.global_position = tiles[1].global_position
 	load_grinder_progress()
 	load_aliens()
+	mana_progress_bar.value = Global.current_mana_value
+	mutagen_label.text = str("Mutagen: ", Global.mutagen)
+	
+	
+func update_mutagen_label(mutagen):
+	mutagen_label.text = str("Mutagen: ", Global.mutagen)
+	Global._save()
+	
 	
 func load_grinder_progress() -> void:
 	#print("Grinder value: " + str(Global.current_evolution_mana_value))
-	alien_grinder.set_pool_value(Global.current_evolution_mana_value)
+	#alien_grinder.set_pool_value(Global.current_evolution_mana_value)
+	pass
 	
 	
 	
@@ -87,9 +102,8 @@ func load_aliens() -> void:
 		
 func _spawn_alien_of_level(level: int) -> void:
 	# find a free tile
-	
 	for tile in tiles:
-		if tile._is_occupied() == false:
+		if tile._is_occupied() == false and not tile.is_in_group("QuestTile"):
 			var alien: PinkAlien = ALIEN_1.instantiate()
 			add_child(alien)
 			alien.global_position = tile.global_position
@@ -121,40 +135,40 @@ func show_alien_label_text(new_text: String):
 	
 func set_current_mana_value(new_mana_value: int) -> void:
 	Global.current_mana_value = new_mana_value
-	pink_tank.set_progress_bar_value(new_mana_value)
 
 
 func increase_pink_mana(mana_value: int):
 	set_current_mana_value(Global.current_mana_value + mana_value)
 
 func spawn_alien_pink(pos: Vector2):
-	pink_tank.play_animation("Push")
 	
 	if Global.current_mana_value < 100:
 		show_alien_label_text("Not enough \ngenoplasm!")
+		alien_eggs.shake_left_right(0.3, 5)
 		return
+		
+	else:
+		alien_eggs.play_animation("Push")
 	
-	var spawned_alien = false
-	tiles = get_tree().get_nodes_in_group("dropable")
-	for tile in tiles:
-		if tile._is_occupied() == false:
-			emit_particles(pink_tank.global_position)
-			spawned_alien = true
-			var alien: PinkAlien = ALIEN_1.instantiate()
-			add_child(alien)
-			alien.global_position = pos
-			alien.assign_tile(tile)
-			var tween = get_tree().create_tween()
-			tween.tween_property(alien, "global_position", tile.global_position, 0.2).set_trans(Tween.TRANS_BOUNCE)
-			tile.occupy(alien)
-			alien.assign_tile(tile)
-			#print("alien spawned")
-			Global.current_mana_value -= 100
-			pink_tank.set_progress_bar_value(Global.current_mana_value)
-			save_data()
-			return
+		tiles = get_tree().get_nodes_in_group("dropable")
+		for tile in tiles:
+			if tile._is_occupied() == false and not tile.is_in_group("QuestTile"):
+				emit_particles(alien_eggs.global_position)
+				var alien: PinkAlien = ALIEN_1.instantiate()
+				add_child(alien)
+				alien.global_position = pos
+				alien.assign_tile(tile)
+				var tween = get_tree().create_tween()
+				tween.tween_property(alien, "global_position", tile.global_position, 0.2).set_trans(Tween.TRANS_BOUNCE)
+				tile.occupy(alien)
+				alien.assign_tile(tile)
+				#print("alien spawned")
+				Global.current_mana_value -= 100
+				mana_progress_bar.value = Global.current_mana_value
+				save_data()
+				return
 			
-	show_alien_label_text("No empty tiles!")
+		show_alien_label_text("No empty tiles!")
 	#print("no tiles available!")
 
 
@@ -163,6 +177,7 @@ func spawn_alien_pink(pos: Vector2):
 
 func _on_refill_button_pressed() -> void:
 	set_current_mana_value(1000)
+	mana_progress_bar.value = 1000
 
 func debug_alien_positions():
 	for tile in tiles:
@@ -172,6 +187,7 @@ func debug_alien_positions():
 			
 func _on_debug_button_pressed() -> void:
 	debug_alien_positions()
+	
 	
 func emit_particles(pos: Vector2):
 	pink_particles_effect.global_position = pos
@@ -222,7 +238,7 @@ func _on_save_button_pressed() -> void:
 func save_data():
 	Global.constent_to_save["max_level"] = Global.max_level
 	Global.constent_to_save["current_mana_value"] = Global.current_mana_value
-	Global.constent_to_save["current_mana_evolution_level"] = alien_grinder.get_current_evolution_mana()
+	#Global.constent_to_save["current_mana_evolution_level"] = alien_grinder.get_current_evolution_mana()
 	Global.constent_to_save["last_exit_unix_time"] = Time.get_unix_time_from_system()
 	#print("saving grinder stats:" + str(alien_grinder.get_current_evolution_mana()))
 	save_aliens()

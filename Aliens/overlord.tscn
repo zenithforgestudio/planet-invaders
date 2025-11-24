@@ -1,13 +1,174 @@
-[gd_scene load_steps=3 format=3 uid="uid://b515jwwo78bff"]
+[gd_scene load_steps=24 format=3 uid="uid://ddf7xrx1a7m7a"]
 
-[ext_resource type="Texture2D" uid="uid://cwhnx0lmbywce" path="res://UI/Cephalid/Cephalid Portrait1.png" id="1_04sio"]
-[ext_resource type="Script" uid="uid://cnscqxcbqtiol" path="res://Aliens/overlord2.gd" id="1_swoxk"]
+[ext_resource type="Script" uid="uid://cnscqxcbqtiol" path="res://Aliens/Overlord/overlord2.gd" id="1_wc3bn"]
+[ext_resource type="Texture2D" uid="uid://dwwjmhw0wh15v" path="res://Aliens/Overlord/Overlord1.png" id="2_wc3bn"]
+[ext_resource type="Texture2D" uid="uid://116n8xovyiai" path="res://Aliens/Overlord/Overlord2.png" id="3_560nb"]
+[ext_resource type="Texture2D" uid="uid://c2t7dd2h6y1uk" path="res://Aliens/Overlord/Copy/Overlord1 - Copy1.png" id="4_wx8pf"]
+[ext_resource type="Texture2D" uid="uid://d2iyjqx0wyyay" path="res://Aliens/Overlord/Copy/Overlord1 - Copy2.png" id="5_brswa"]
+[ext_resource type="Texture2D" uid="uid://dqsy464qc2qxl" path="res://Aliens/AlienPink/Textures/Evo1Sprite1.png" id="6_tocxb"]
+[ext_resource type="Texture2D" uid="uid://dr41u3frl6cqy" path="res://Aliens/AlienPink/Textures/Evo1Sprite2.png" id="7_xpely"]
+[ext_resource type="Texture2D" uid="uid://doauy2bsuj88c" path="res://Aliens/AlienPink/Textures/Evo2Sprite1.png" id="8_n03n2"]
+[ext_resource type="Texture2D" uid="uid://bgvfdxc5wi8we" path="res://Aliens/AlienPink/Textures/Evo2Sprite2.png" id="9_ujp0d"]
+[ext_resource type="Texture2D" uid="uid://dye1b85dsq841" path="res://Aliens/AlienPink/Textures/Evo3Sprite1.png" id="10_ovv16"]
+[ext_resource type="Texture2D" uid="uid://bwt4r2jivevbq" path="res://Aliens/AlienPink/Textures/Evo3Sprite2.png" id="11_n802x"]
+[ext_resource type="Texture2D" uid="uid://tx8fv0fkvl8u" path="res://Aliens/AlienPink/Textures/Evo4Sprite1.png" id="12_yyf88"]
+[ext_resource type="Texture2D" uid="uid://dstyck5cepeyd" path="res://Aliens/AlienPink/Textures/Evo4Sprite2.png" id="13_0l5jd"]
+[ext_resource type="Texture2D" uid="uid://c0w5qgye3q70l" path="res://Aliens/AlienPink/Textures/Evo5Sprite1.png" id="14_yfnbl"]
+[ext_resource type="Texture2D" uid="uid://btdc0toka1cjd" path="res://Aliens/AlienPink/Textures/Evo5Sprite2.png" id="15_sf2a1"]
+[ext_resource type="Texture2D" uid="uid://fijme27a3ulr" path="res://Aliens/AlienPink/Textures/Evo6Sprite1.png" id="16_rilko"]
+[ext_resource type="Texture2D" uid="uid://dnjskmntb5cf5" path="res://Aliens/AlienPink/Textures/Evo6Sprite2.png" id="17_xt1uf"]
+[ext_resource type="Texture2D" uid="uid://b305r2wq3x4yj" path="res://Aliens/AlienPink/Textures/Evo7Sprite1.png" id="18_1ddhq"]
+[ext_resource type="Texture2D" uid="uid://ku7p6dhy621r" path="res://Aliens/AlienPink/Textures/Evo7Sprite2.png" id="19_dy3uc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kyvna"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_wc3bn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_560nb")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wx8pf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_wx8pf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_brswa")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_brswa"]
+radius = 29.0
+height = 116.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_flmja"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_tocxb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_xpely")
+}],
+"loop": true,
+"name": &"Evo1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_n03n2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ujp0d")
+}],
+"loop": true,
+"name": &"Evo2",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_ovv16")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_n802x")
+}],
+"loop": true,
+"name": &"Evo3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_yyf88")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_0l5jd")
+}],
+"loop": true,
+"name": &"Evo4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_yfnbl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_sf2a1")
+}],
+"loop": true,
+"name": &"Evo5",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_rilko")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_xt1uf")
+}],
+"loop": true,
+"name": &"Evo6",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_1ddhq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_dy3uc")
+}],
+"loop": true,
+"name": &"Evo7",
+"speed": 5.0
+}]
 
 [node name="Overlord" type="CharacterBody2D"]
-script = ExtResource("1_swoxk")
+script = ExtResource("1_wc3bn")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_04sio")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+sprite_frames = SubResource("SpriteFrames_kyvna")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_wx8pf")
+animation = &"Idle"
+autoplay = "Idle"
+frame_progress = 0.58573407
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_brswa")
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+current = true
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="."]
+position = Vector2(-95, 1)
+sprite_frames = SubResource("SpriteFrames_flmja")
+animation = &"Evo3"
+autoplay = "Evo3"
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="."]
+position = Vector2(85, -17)
+sprite_frames = SubResource("SpriteFrames_flmja")
+animation = &"Evo6"
+autoplay = "Evo6"
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="."]
+position = Vector2(-51, -70)
+sprite_frames = SubResource("SpriteFrames_flmja")
+animation = &"Evo4"
+autoplay = "Evo4"

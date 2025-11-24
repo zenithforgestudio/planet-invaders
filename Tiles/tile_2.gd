@@ -5,6 +5,9 @@ class_name  Tile
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var label: Label = $Label
 
+
+@export var is_quest_tile: bool = false
+
 var is_occupied: bool = false
 var occupant: Area2D = null
 
@@ -37,3 +40,16 @@ func _is_occupied():
 	
 func _process(delta: float) -> void:
 	label.text = str(is_occupied)
+	
+func _ready() -> void:
+	pass
+	
+	
+func update_array(alien_level: int, alien: Node2D):
+	if self.is_in_group("QuestTile"):
+		get_parent().update_array(alien_level, alien)
+
+
+
+
+	

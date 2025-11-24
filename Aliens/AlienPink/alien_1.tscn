@@ -120,11 +120,12 @@ offset_right = 40.0
 offset_bottom = 23.0
 
 [node name="ManaGenerationTimer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 60.0
 autostart = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("16_c3xrk")
+bus = &"Sounds"
 
 [node name="AlienLabel" parent="." instance=ExtResource("17_j2dyx")]
 

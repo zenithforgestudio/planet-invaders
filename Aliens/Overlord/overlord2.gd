@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@onready var camera_2d: Camera2D = $Camera2D
 
 @export var speed: int = 200.0
 const JUMP_VELOCITY = -400.0
@@ -39,3 +40,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, speed)
 
 	move_and_slide()
+	
+func camera_enable(is_enabled: bool):
+	camera_2d.enabled = is_enabled
+	

@@ -41,6 +41,22 @@ func play_animation(animation: String):
 	texture_progress_bar.position.y += 4
 	await get_tree().create_timer(0.2).timeout
 	texture_progress_bar.position.y -= 4
+	
+func shake_left_right(duration := 0.3, strength := 8.0, shakes := 4) -> void:
+	var tween := create_tween()
+	var original_pos = self.position
+
+	for i in range(shakes):
+		var offset: Vector2
+		if i % 2 == 0:
+			offset = Vector2.RIGHT * strength
+		else:
+			offset = Vector2.LEFT * strength
+
+		tween.tween_property(self, "position", original_pos + offset, duration / (shakes * 2))
+		tween.tween_property(self, "position", original_pos, duration / (shakes * 2))
+
+	
 
 
 func _on_aline_spawn_cooldown_timeout() -> void:

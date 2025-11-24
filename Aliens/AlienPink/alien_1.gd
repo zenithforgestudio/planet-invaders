@@ -83,6 +83,10 @@ func _on_drag_release() -> void:
 
 	print("[DEBUG] Dropped on tile: ", body_ref)
 
+	if body_ref.is_in_group("QuestTile"):
+		body_ref.update_array(self.get_current_evolution_level(), self)
+		emit_signal("board_changed")
+		return
 	if body_ref.is_occupied:
 		_handle_occupied_drop(body_ref)
 	else:
@@ -163,8 +167,9 @@ func _handle_occupied_drop(target_tile: Tile) -> void:
 			print("[DEBUG] Merge failed – incompatible or max level reached")
 			#_return_to_previous_or_initial()
 			_swap_positions_with(other_alien, target_tile)
-			if get_current_evolution_level() == Global.max_level:
-				root.show_alien_label_text("Max Level Reached")
+			if get_current_evolution_level() == Global.max_level and other_alien.get_current_evolution_level() == Global.max_level:
+				
+				root.show_alien_label_text(["Max Level Reached", "Increase Overlord\nLevel"].pick_random())
 			return
 
 	# --- Invalid merge target ---
@@ -172,6 +177,14 @@ func _handle_occupied_drop(target_tile: Tile) -> void:
 	_swap_with_invalid_target(other_alien, target_tile)
 
 # -------------------------------------------------------------
+
+func clear_current_tile():
+	if current_tile != null:
+		current_tile.vacate()
+
+
+#--------------------------------------------------------------
+
 
 func _handle_free_drop(target_tile: Tile) -> void:
 	print("[DEBUG] Dropped on free tile")
@@ -301,4 +314,4 @@ func _on_mana_generation_timer_timeout() -> void:
 	alien_label.show_number(mana_count)
 
 func mana_generation_count() -> int:
-	return int(pow(current_evolution_level, 1.4) * 2)
+	return int(pow(current_evolution_level, 1.4))

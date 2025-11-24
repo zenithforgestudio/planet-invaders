@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://bo7ad47dd8qqk"]
+
+[ext_resource type="PackedScene" uid="uid://bt0chqy8r1ca2" path="res://Tiles/tile_2.tscn" id="1_luddv"]
+[ext_resource type="Script" uid="uid://d3ob7ns460vsb" path="res://Tiles/QuestTile/quest_tile_2.gd" id="2_20qrt"]
+
+[node name="QuestTile" groups=["QuestTile"] instance=ExtResource("1_luddv")]
+script = ExtResource("2_20qrt")

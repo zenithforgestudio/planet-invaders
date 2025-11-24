@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://choi51yxblfrv"]
+
+[ext_resource type="Script" uid="uid://bfa7d2ow8e7xp" path="res://Tiles/QuestTile/quest_tile.gd" id="1_2nr58"]
+[ext_resource type="Texture2D" uid="uid://cr3o88m35kg0u" path="res://Tiles/LabTileInfected2.png" id="1_qkre7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2nr58"]
+size = Vector2(108, 108)
+
+[node name="QuestTile" type="StaticBody2D" groups=["QuestTile", "dropabable"]]
+script = ExtResource("1_2nr58")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_2nr58")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_qkre7")

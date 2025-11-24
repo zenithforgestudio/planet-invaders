@@ -1,0 +1,183 @@
+[gd_scene load_steps=22 format=3 uid="uid://bwk50d1krxvbc"]
+
+[ext_resource type="PackedScene" uid="uid://bt0chqy8r1ca2" path="res://Tiles/tile_2.tscn" id="1_664wi"]
+[ext_resource type="Script" uid="uid://djpp3drjnp01g" path="res://Worlds/Lobby/quest_system.gd" id="1_x4ok2"]
+[ext_resource type="Texture2D" uid="uid://cwhnx0lmbywce" path="res://UI/Cephalid/Cephalid Portrait1.png" id="2_48vgi"]
+[ext_resource type="Texture2D" uid="uid://tec25k1705wt" path="res://UI/Cephalid/Cephalid Portrait2.png" id="3_2q7uk"]
+[ext_resource type="Texture2D" uid="uid://dqsy464qc2qxl" path="res://Aliens/AlienPink/Textures/Evo1Sprite1.png" id="5_wot2m"]
+[ext_resource type="Texture2D" uid="uid://dr41u3frl6cqy" path="res://Aliens/AlienPink/Textures/Evo1Sprite2.png" id="6_a8lqq"]
+[ext_resource type="Texture2D" uid="uid://doauy2bsuj88c" path="res://Aliens/AlienPink/Textures/Evo2Sprite1.png" id="7_x41jo"]
+[ext_resource type="Texture2D" uid="uid://bgvfdxc5wi8we" path="res://Aliens/AlienPink/Textures/Evo2Sprite2.png" id="8_0idx0"]
+[ext_resource type="Texture2D" uid="uid://dye1b85dsq841" path="res://Aliens/AlienPink/Textures/Evo3Sprite1.png" id="9_6cu2s"]
+[ext_resource type="Texture2D" uid="uid://bwt4r2jivevbq" path="res://Aliens/AlienPink/Textures/Evo3Sprite2.png" id="10_soe7j"]
+[ext_resource type="Texture2D" uid="uid://tx8fv0fkvl8u" path="res://Aliens/AlienPink/Textures/Evo4Sprite1.png" id="11_eu483"]
+[ext_resource type="Texture2D" uid="uid://dstyck5cepeyd" path="res://Aliens/AlienPink/Textures/Evo4Sprite2.png" id="12_yg66s"]
+[ext_resource type="Texture2D" uid="uid://c0w5qgye3q70l" path="res://Aliens/AlienPink/Textures/Evo5Sprite1.png" id="13_764vd"]
+[ext_resource type="Texture2D" uid="uid://btdc0toka1cjd" path="res://Aliens/AlienPink/Textures/Evo5Sprite2.png" id="14_qnbtb"]
+[ext_resource type="Texture2D" uid="uid://fijme27a3ulr" path="res://Aliens/AlienPink/Textures/Evo6Sprite1.png" id="15_kis0t"]
+[ext_resource type="Texture2D" uid="uid://dnjskmntb5cf5" path="res://Aliens/AlienPink/Textures/Evo6Sprite2.png" id="16_qyufm"]
+[ext_resource type="Texture2D" uid="uid://b305r2wq3x4yj" path="res://Aliens/AlienPink/Textures/Evo7Sprite1.png" id="17_ix7u5"]
+[ext_resource type="Texture2D" uid="uid://ku7p6dhy621r" path="res://Aliens/AlienPink/Textures/Evo7Sprite2.png" id="18_k2lkj"]
+[ext_resource type="FontFile" uid="uid://rhha0fgvevc5" path="res://Fonts/NotJamSerif11.ttf" id="19_wot2m"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xlect"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_48vgi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2q7uk")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q8o2m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_wot2m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_a8lqq")
+}],
+"loop": true,
+"name": &"Evo1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_x41jo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_0idx0")
+}],
+"loop": true,
+"name": &"Evo2",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_6cu2s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_soe7j")
+}],
+"loop": true,
+"name": &"Evo3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_eu483")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_yg66s")
+}],
+"loop": true,
+"name": &"Evo4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_764vd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_qnbtb")
+}],
+"loop": true,
+"name": &"Evo5",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_kis0t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_qyufm")
+}],
+"loop": true,
+"name": &"Evo6",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_ix7u5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_k2lkj")
+}],
+"loop": true,
+"name": &"Evo7",
+"speed": 5.0
+}]
+
+[node name="QuestSystem" type="Node2D"]
+script = ExtResource("1_x4ok2")
+
+[node name="Tile2" parent="." instance=ExtResource("1_664wi")]
+position = Vector2(56, 824)
+is_quest_tile = true
+
+[node name="OverlordAnimatedSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(409, 809)
+sprite_frames = SubResource("SpriteFrames_xlect")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AlienRequest1" type="AnimatedSprite2D" parent="."]
+position = Vector2(147, 821)
+sprite_frames = SubResource("SpriteFrames_q8o2m")
+animation = &"Evo2"
+autoplay = "Evo1"
+
+[node name="AlienRequest2" type="AnimatedSprite2D" parent="."]
+position = Vector2(213, 822)
+sprite_frames = SubResource("SpriteFrames_q8o2m")
+animation = &"Evo1"
+autoplay = "Evo1"
+
+[node name="AlienRequest3" type="AnimatedSprite2D" parent="."]
+position = Vector2(279, 821)
+sprite_frames = SubResource("SpriteFrames_q8o2m")
+animation = &"Evo2"
+autoplay = "Evo1"
+
+[node name="ReqeustCount1" type="Label" parent="."]
+offset_left = 130.0
+offset_top = 843.0
+offset_right = 170.0
+offset_bottom = 866.0
+theme_override_fonts/font = ExtResource("19_wot2m")
+text = "X1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RequestCount2" type="Label" parent="."]
+offset_left = 197.0
+offset_top = 846.0
+offset_right = 237.0
+offset_bottom = 869.0
+theme_override_fonts/font = ExtResource("19_wot2m")
+text = "X2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RequestCount3" type="Label" parent="."]
+offset_left = 262.0
+offset_top = 846.0
+offset_right = 302.0
+offset_bottom = 869.0
+theme_override_fonts/font = ExtResource("19_wot2m")
+text = "X3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="."]
+offset_left = 15.0
+offset_top = 870.0
+offset_right = 93.0
+offset_bottom = 893.0
+text = "Quest Tile"

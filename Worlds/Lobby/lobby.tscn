@@ -1,44 +1,25 @@
-[gd_scene load_steps=8 format=3 uid="uid://c67bwjrh3ldmp"]
+[gd_scene load_steps=11 format=3 uid="uid://c67bwjrh3ldmp"]
 
 [ext_resource type="Script" uid="uid://cr02u4xx3t6i7" path="res://Worlds/Lobby/lobby.gd" id="1_a4gjm"]
+[ext_resource type="PackedScene" uid="uid://f754c2ctyhhk" path="res://Objects/AlienSpawner2/alien_eggs.tscn" id="2_qia00"]
 [ext_resource type="AudioStream" uid="uid://dbo5rt4gjh4m3" path="res://SFX/AmbientMusic/391438__andrewkn__cosmic-glow.wav" id="3_a4gjm"]
-[ext_resource type="PackedScene" uid="uid://b6ok1e22srahk" path="res://Objects/AlienSpawner/pink_tank.tscn" id="4_eawp3"]
+[ext_resource type="PackedScene" uid="uid://61afnrxg75d3" path="res://UI/LateralMenu/lateral_menu.tscn" id="7_6p4u0"]
+[ext_resource type="Texture2D" uid="uid://bloaqhunehhu3" path="res://UI/Currencies/Mutagen/Mutagen.png" id="7_ck21s"]
 [ext_resource type="PackedScene" uid="uid://by438khcaowue" path="res://Aliens/ParticleFX/pink_particles_effect.tscn" id="7_qia00"]
-[ext_resource type="PackedScene" uid="uid://c3lcctreyldyv" path="res://Objects/AlienGrinder/alien_grinder.tscn" id="8_6p4u0"]
 [ext_resource type="PackedScene" uid="uid://btrqqrwv0s02k" path="res://UI/Label/alien_label.tscn" id="9_ck21s"]
 [ext_resource type="PackedScene" uid="uid://cejf7pb1nacq3" path="res://Worlds/Lobby/parallax_holder.tscn" id="9_gef5a"]
+[ext_resource type="PackedScene" uid="uid://bwk50d1krxvbc" path="res://Worlds/Lobby/quest_system.tscn" id="9_ncq5s"]
+[ext_resource type="PackedScene" uid="uid://c3dgbt7w0lxr6" path="res://Worlds/Lobby/attack_system.tscn" id="10_gef5a"]
 
 [node name="Lobby" type="Node2D"]
 script = ExtResource("1_a4gjm")
+gradient_colors = Array[Color]([Color(0.9607843, 0.627451, 0.5921569, 1), Color(0.9607843, 0.627451, 0.5921569, 1), Color(0.9607843, 0.627451, 0.5921569, 1), Color(0.9607843, 0.627451, 0.5921569, 1)])
 
 [node name="BackGround" type="Sprite2D" parent="."]
 scale = Vector2(4, 4)
 centered = false
 
-[node name="ColorRect3" type="ColorRect" parent="."]
-visible = false
-offset_top = 350.0
-offset_right = 491.0
-offset_bottom = 900.0
-mouse_filter = 2
-color = Color(0.70465624, 0.7999814, 0.93937635, 1)
-
-[node name="ColorRect" type="ColorRect" parent="."]
-visible = false
-offset_top = 350.0
-offset_right = 32.0
-offset_bottom = 900.0
-mouse_filter = 2
-color = Color(0.25882354, 0.2, 0.25490198, 1)
-
-[node name="ColorRect2" type="ColorRect" parent="."]
-visible = false
-offset_left = 418.0
-offset_top = 350.0
-offset_right = 450.0
-offset_bottom = 900.0
-mouse_filter = 2
-color = Color(0.25882354, 0.2, 0.25490198, 1)
+[node name="AlienEggs" parent="." instance=ExtResource("2_qia00")]
 
 [node name="RefillButton" type="Button" parent="."]
 offset_left = 83.0
@@ -50,8 +31,7 @@ text = "Refill"
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_a4gjm")
 autoplay = true
-
-[node name="PinkTank" parent="." instance=ExtResource("4_eawp3")]
+bus = &"Music"
 
 [node name="DebugButton" type="Button" parent="."]
 offset_left = 91.0
@@ -68,8 +48,6 @@ explosiveness = 1.0
 spread = 180.0
 initial_velocity_min = 20.0
 initial_velocity_max = 20.0
-
-[node name="AlienGrinder" parent="." instance=ExtResource("8_6p4u0")]
 
 [node name="ParallaxHolder" parent="." instance=ExtResource("9_gef5a")]
 
@@ -104,6 +82,47 @@ offset_top = 131.0
 offset_right = 315.0
 offset_bottom = 139.0
 text = "Reset"
+
+[node name="ManaProgressBar" type="ProgressBar" parent="."]
+modulate = Color(1, 0.3137255, 1, 1)
+offset_left = 81.0
+offset_top = 29.0
+offset_right = 249.0
+offset_bottom = 56.0
+max_value = 1000.0
+value = 500.0
+
+[node name="MutagenLabel" type="Label" parent="."]
+offset_left = 226.0
+offset_top = 28.0
+offset_right = 304.0
+offset_bottom = 51.0
+text = "Mutagen: "
+
+[node name="MutagenImage" type="TextureRect" parent="MutagenLabel"]
+layout_mode = 0
+offset_left = 77.0
+offset_top = -15.0
+offset_right = 125.0
+offset_bottom = 41.0
+texture = ExtResource("7_ck21s")
+
+[node name="Viralite" type="Label" parent="."]
+offset_left = 159.0
+offset_top = 78.0
+offset_right = 237.0
+offset_bottom = 101.0
+text = "Viralite"
+
+[node name="LateralMenu2" parent="." instance=ExtResource("7_6p4u0")]
+offset_left = 332.0
+offset_top = 38.0
+offset_right = 332.0
+offset_bottom = 38.0
+
+[node name="QuestSystem" parent="." instance=ExtResource("9_ncq5s")]
+
+[node name="AttackSystem" parent="." instance=ExtResource("10_gef5a")]
 
 [connection signal="pressed" from="RefillButton" to="." method="_on_refill_button_pressed"]
 [connection signal="pressed" from="DebugButton" to="." method="_on_debug_button_pressed"]

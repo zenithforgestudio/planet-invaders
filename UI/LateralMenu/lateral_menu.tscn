@@ -1,0 +1,465 @@
+[gd_scene load_steps=27 format=3 uid="uid://61afnrxg75d3"]
+
+[ext_resource type="Texture2D" uid="uid://cr3o88m35kg0u" path="res://Tiles/LabTileInfected2.png" id="1_l1u6q"]
+[ext_resource type="Script" uid="uid://cfsxsh0ma3o35" path="res://UI/LateralMenu/lateral_menu.gd" id="1_po5bn"]
+[ext_resource type="Texture2D" uid="uid://dqsy464qc2qxl" path="res://Aliens/AlienPink/Textures/Evo1Sprite1.png" id="2_g3pmb"]
+[ext_resource type="Shader" uid="uid://chcu8ex48omq6" path="res://Shaders/BlackShader.gdshader" id="3_h4j0y"]
+[ext_resource type="Texture2D" uid="uid://dr41u3frl6cqy" path="res://Aliens/AlienPink/Textures/Evo1Sprite2.png" id="3_orv12"]
+[ext_resource type="Texture2D" uid="uid://doauy2bsuj88c" path="res://Aliens/AlienPink/Textures/Evo2Sprite1.png" id="4_po5bn"]
+[ext_resource type="Texture2D" uid="uid://bgvfdxc5wi8we" path="res://Aliens/AlienPink/Textures/Evo2Sprite2.png" id="5_h4j0y"]
+[ext_resource type="Texture2D" uid="uid://dye1b85dsq841" path="res://Aliens/AlienPink/Textures/Evo3Sprite1.png" id="6_5tolk"]
+[ext_resource type="Texture2D" uid="uid://bwt4r2jivevbq" path="res://Aliens/AlienPink/Textures/Evo3Sprite2.png" id="7_hw710"]
+[ext_resource type="Texture2D" uid="uid://tx8fv0fkvl8u" path="res://Aliens/AlienPink/Textures/Evo4Sprite1.png" id="8_4rcoq"]
+[ext_resource type="Texture2D" uid="uid://dstyck5cepeyd" path="res://Aliens/AlienPink/Textures/Evo4Sprite2.png" id="9_a4fkv"]
+[ext_resource type="Texture2D" uid="uid://c0w5qgye3q70l" path="res://Aliens/AlienPink/Textures/Evo5Sprite1.png" id="10_qqghc"]
+[ext_resource type="Texture2D" uid="uid://btdc0toka1cjd" path="res://Aliens/AlienPink/Textures/Evo5Sprite2.png" id="11_ypa5u"]
+[ext_resource type="Texture2D" uid="uid://fijme27a3ulr" path="res://Aliens/AlienPink/Textures/Evo6Sprite1.png" id="12_6iahx"]
+[ext_resource type="Texture2D" uid="uid://dnjskmntb5cf5" path="res://Aliens/AlienPink/Textures/Evo6Sprite2.png" id="13_xfts1"]
+[ext_resource type="Texture2D" uid="uid://b305r2wq3x4yj" path="res://Aliens/AlienPink/Textures/Evo7Sprite1.png" id="14_guxgl"]
+[ext_resource type="Texture2D" uid="uid://ku7p6dhy621r" path="res://Aliens/AlienPink/Textures/Evo7Sprite2.png" id="15_htaqa"]
+[ext_resource type="Texture2D" uid="uid://dfv0vujolluo7" path="res://icon.svg" id="16_orv12"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5tolk"]
+shader = ExtResource("3_h4j0y")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qvqiq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_g3pmb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_orv12")
+}],
+"loop": true,
+"name": &"Evo1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_po5bn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_h4j0y")
+}],
+"loop": true,
+"name": &"Evo2",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_5tolk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_hw710")
+}],
+"loop": true,
+"name": &"Evo3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_4rcoq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_a4fkv")
+}],
+"loop": true,
+"name": &"Evo4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_qqghc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ypa5u")
+}],
+"loop": true,
+"name": &"Evo5",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_6iahx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_xfts1")
+}],
+"loop": true,
+"name": &"Evo6",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_guxgl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_htaqa")
+}],
+"loop": true,
+"name": &"Evo7",
+"speed": 5.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hw710"]
+shader = ExtResource("3_h4j0y")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4rcoq"]
+shader = ExtResource("3_h4j0y")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a4fkv"]
+shader = ExtResource("3_h4j0y")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qqghc"]
+shader = ExtResource("3_h4j0y")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ypa5u"]
+shader = ExtResource("3_h4j0y")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6iahx"]
+shader = ExtResource("3_h4j0y")
+
+[node name="LateralMenu" type="Control"]
+z_index = 100
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 454.0
+offset_top = 13.0
+offset_right = 454.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_po5bn")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_top = 43.0
+offset_right = 226.0
+offset_bottom = 848.0
+color = Color(0.23459652, 0.12556204, 0.24112451, 1)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+custom_minimum_size = Vector2(220, 800)
+layout_mode = 0
+offset_left = 7.0
+offset_top = 50.0
+offset_right = 227.0
+offset_bottom = 850.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureRect" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_l1u6q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ScrollContainer/HBoxContainer/VBoxContainer/TextureButton"]
+material = SubResource("ShaderMaterial_5tolk")
+position = Vector2(54, 51)
+sprite_frames = SubResource("SpriteFrames_qvqiq")
+animation = &"Evo1"
+autoplay = "Evo1"
+
+[node name="TextureButton2" type="TextureRect" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_l1u6q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ScrollContainer/HBoxContainer/VBoxContainer/TextureButton2"]
+material = SubResource("ShaderMaterial_hw710")
+position = Vector2(56, 54)
+sprite_frames = SubResource("SpriteFrames_qvqiq")
+animation = &"Evo2"
+autoplay = "Evo2"
+
+[node name="TextureButton3" type="TextureRect" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_l1u6q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ScrollContainer/HBoxContainer/VBoxContainer/TextureButton3"]
+material = SubResource("ShaderMaterial_4rcoq")
+position = Vector2(56, 52)
+sprite_frames = SubResource("SpriteFrames_qvqiq")
+animation = &"Evo3"
+autoplay = "Evo3"
+
+[node name="TextureButton4" type="TextureRect" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_l1u6q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ScrollContainer/HBoxContainer/VBoxContainer/TextureButton4"]
+material = SubResource("ShaderMaterial_a4fkv")
+position = Vector2(55, 52)
+sprite_frames = SubResource("SpriteFrames_qvqiq")
+animation = &"Evo4"
+autoplay = "Evo4"
+
+[node name="TextureButton5" type="TextureRect" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_l1u6q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ScrollContainer/HBoxContainer/VBoxContainer/TextureButton5"]
+material = SubResource("ShaderMaterial_qqghc")
+position = Vector2(59, 53)
+sprite_frames = SubResource("SpriteFrames_qvqiq")
+animation = &"Evo5"
+autoplay = "Evo5"
+
+[node name="TextureButton6" type="TextureRect" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_l1u6q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ScrollContainer/HBoxContainer/VBoxContainer/TextureButton6"]
+material = SubResource("ShaderMaterial_ypa5u")
+position = Vector2(60, 56)
+sprite_frames = SubResource("SpriteFrames_qvqiq")
+animation = &"Evo6"
+autoplay = "Evo6"
+
+[node name="TextureButton7" type="TextureRect" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_l1u6q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ScrollContainer/HBoxContainer/VBoxContainer/TextureButton7"]
+material = SubResource("ShaderMaterial_6iahx")
+position = Vector2(60, 49)
+sprite_frames = SubResource("SpriteFrames_qvqiq")
+animation = &"Evo7"
+autoplay = "Evo7"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ScrollContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureRect" parent="ScrollContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("1_l1u6q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ScrollContainer/HBoxContainer/VBoxContainer2/TextureButton"]
+position = Vector2(54, 51)
+sprite_frames = SubResource("SpriteFrames_qvqiq")
+animation = &"Evo1"
+autoplay = "Evo1"
+
+[node name="TextureButton2" type="TextureRect" parent="ScrollContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("1_l1u6q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ScrollContainer/HBoxContainer/VBoxContainer2/TextureButton2"]
+position = Vector2(56, 54)
+sprite_frames = SubResource("SpriteFrames_qvqiq")
+animation = &"Evo2"
+autoplay = "Evo2"
+
+[node name="TextureButton3" type="TextureRect" parent="ScrollContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("1_l1u6q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ScrollContainer/HBoxContainer/VBoxContainer2/TextureButton3"]
+position = Vector2(56, 52)
+sprite_frames = SubResource("SpriteFrames_qvqiq")
+animation = &"Evo3"
+autoplay = "Evo3"
+
+[node name="TextureButton4" type="TextureRect" parent="ScrollContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("1_l1u6q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ScrollContainer/HBoxContainer/VBoxContainer2/TextureButton4"]
+position = Vector2(55, 52)
+sprite_frames = SubResource("SpriteFrames_qvqiq")
+animation = &"Evo4"
+autoplay = "Evo4"
+
+[node name="TextureButton5" type="TextureRect" parent="ScrollContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("1_l1u6q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ScrollContainer/HBoxContainer/VBoxContainer2/TextureButton5"]
+position = Vector2(59, 53)
+sprite_frames = SubResource("SpriteFrames_qvqiq")
+animation = &"Evo5"
+autoplay = "Evo5"
+
+[node name="TextureButton6" type="TextureRect" parent="ScrollContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("1_l1u6q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ScrollContainer/HBoxContainer/VBoxContainer2/TextureButton6"]
+position = Vector2(60, 56)
+sprite_frames = SubResource("SpriteFrames_qvqiq")
+animation = &"Evo6"
+autoplay = "Evo6"
+
+[node name="TextureButton7" type="TextureRect" parent="ScrollContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("1_l1u6q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ScrollContainer/HBoxContainer/VBoxContainer2/TextureButton7"]
+position = Vector2(60, 49)
+sprite_frames = SubResource("SpriteFrames_qvqiq")
+animation = &"Evo7"
+autoplay = "Evo7"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="ScrollContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureRect" parent="ScrollContainer/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("1_l1u6q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ScrollContainer/HBoxContainer/VBoxContainer3/TextureButton"]
+position = Vector2(54, 51)
+sprite_frames = SubResource("SpriteFrames_qvqiq")
+animation = &"Evo1"
+autoplay = "Evo1"
+
+[node name="TextureButton2" type="TextureRect" parent="ScrollContainer/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("1_l1u6q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ScrollContainer/HBoxContainer/VBoxContainer3/TextureButton2"]
+position = Vector2(56, 54)
+sprite_frames = SubResource("SpriteFrames_qvqiq")
+animation = &"Evo2"
+autoplay = "Evo2"
+
+[node name="TextureButton3" type="TextureRect" parent="ScrollContainer/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("1_l1u6q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ScrollContainer/HBoxContainer/VBoxContainer3/TextureButton3"]
+position = Vector2(56, 52)
+sprite_frames = SubResource("SpriteFrames_qvqiq")
+animation = &"Evo3"
+autoplay = "Evo3"
+
+[node name="TextureButton4" type="TextureRect" parent="ScrollContainer/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("1_l1u6q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ScrollContainer/HBoxContainer/VBoxContainer3/TextureButton4"]
+position = Vector2(55, 52)
+sprite_frames = SubResource("SpriteFrames_qvqiq")
+animation = &"Evo4"
+autoplay = "Evo4"
+
+[node name="TextureButton5" type="TextureRect" parent="ScrollContainer/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("1_l1u6q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ScrollContainer/HBoxContainer/VBoxContainer3/TextureButton5"]
+position = Vector2(59, 53)
+sprite_frames = SubResource("SpriteFrames_qvqiq")
+animation = &"Evo5"
+autoplay = "Evo5"
+
+[node name="TextureButton6" type="TextureRect" parent="ScrollContainer/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("1_l1u6q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ScrollContainer/HBoxContainer/VBoxContainer3/TextureButton6"]
+position = Vector2(60, 56)
+sprite_frames = SubResource("SpriteFrames_qvqiq")
+animation = &"Evo6"
+autoplay = "Evo6"
+
+[node name="TextureButton7" type="TextureRect" parent="ScrollContainer/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("1_l1u6q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ScrollContainer/HBoxContainer/VBoxContainer3/TextureButton7"]
+position = Vector2(60, 49)
+sprite_frames = SubResource("SpriteFrames_qvqiq")
+animation = &"Evo7"
+autoplay = "Evo7"
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="ScrollContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureRect" parent="ScrollContainer/HBoxContainer/VBoxContainer4"]
+layout_mode = 2
+texture = ExtResource("1_l1u6q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ScrollContainer/HBoxContainer/VBoxContainer4/TextureButton"]
+position = Vector2(54, 51)
+sprite_frames = SubResource("SpriteFrames_qvqiq")
+animation = &"Evo1"
+autoplay = "Evo1"
+
+[node name="TextureButton2" type="TextureRect" parent="ScrollContainer/HBoxContainer/VBoxContainer4"]
+layout_mode = 2
+texture = ExtResource("1_l1u6q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ScrollContainer/HBoxContainer/VBoxContainer4/TextureButton2"]
+position = Vector2(56, 54)
+sprite_frames = SubResource("SpriteFrames_qvqiq")
+animation = &"Evo2"
+autoplay = "Evo2"
+
+[node name="TextureButton3" type="TextureRect" parent="ScrollContainer/HBoxContainer/VBoxContainer4"]
+layout_mode = 2
+texture = ExtResource("1_l1u6q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ScrollContainer/HBoxContainer/VBoxContainer4/TextureButton3"]
+position = Vector2(56, 52)
+sprite_frames = SubResource("SpriteFrames_qvqiq")
+animation = &"Evo3"
+autoplay = "Evo3"
+
+[node name="TextureButton4" type="TextureRect" parent="ScrollContainer/HBoxContainer/VBoxContainer4"]
+layout_mode = 2
+texture = ExtResource("1_l1u6q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ScrollContainer/HBoxContainer/VBoxContainer4/TextureButton4"]
+position = Vector2(55, 52)
+sprite_frames = SubResource("SpriteFrames_qvqiq")
+animation = &"Evo4"
+autoplay = "Evo4"
+
+[node name="TextureButton5" type="TextureRect" parent="ScrollContainer/HBoxContainer/VBoxContainer4"]
+layout_mode = 2
+texture = ExtResource("1_l1u6q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ScrollContainer/HBoxContainer/VBoxContainer4/TextureButton5"]
+position = Vector2(59, 53)
+sprite_frames = SubResource("SpriteFrames_qvqiq")
+animation = &"Evo5"
+autoplay = "Evo5"
+
+[node name="TextureButton6" type="TextureRect" parent="ScrollContainer/HBoxContainer/VBoxContainer4"]
+layout_mode = 2
+texture = ExtResource("1_l1u6q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ScrollContainer/HBoxContainer/VBoxContainer4/TextureButton6"]
+position = Vector2(60, 56)
+sprite_frames = SubResource("SpriteFrames_qvqiq")
+animation = &"Evo6"
+autoplay = "Evo6"
+
+[node name="TextureButton7" type="TextureRect" parent="ScrollContainer/HBoxContainer/VBoxContainer4"]
+layout_mode = 2
+texture = ExtResource("1_l1u6q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ScrollContainer/HBoxContainer/VBoxContainer4/TextureButton7"]
+position = Vector2(60, 49)
+sprite_frames = SubResource("SpriteFrames_qvqiq")
+animation = &"Evo7"
+autoplay = "Evo7"
+
+[node name="EneterLeaveScreenButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = -43.0
+offset_top = -2.0
+offset_right = 85.0
+offset_bottom = 126.0
+scale = Vector2(0.5430266, 0.54095024)
+texture_normal = ExtResource("16_orv12")
+texture_pressed = ExtResource("16_orv12")
+texture_hover = ExtResource("16_orv12")
+
+[connection signal="pressed" from="EneterLeaveScreenButton" to="." method="_on_eneter_leave_screen_button_pressed"]

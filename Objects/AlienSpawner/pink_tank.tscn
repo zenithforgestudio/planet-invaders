@@ -71,6 +71,7 @@ position = Vector2(-40, 20)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_bfmhe")
+bus = &"Sounds"
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="AlineSpawnCooldown" to="." method="_on_aline_spawn_cooldown_timeout"]
