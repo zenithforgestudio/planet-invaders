@@ -16,7 +16,13 @@ func _process(delta: float) -> void:
 	pass
 
 func update_array(alien_level: int, alien: Node2D):
-	if (alien.get_supply_level() + Global.attack_supply) <= Global.max_attack_supply:
+	if alien.get_current_evoluition_level() < 3:
+		alien._return_to_previous_or_initial()
+		print("Alien is Too Weak")
+	elif (alien.get_supply_level() + Global.attack_supply) > Global.max_attack_supply:
+		alien._return_to_previous_or_initial()
+		print("Attack Supply Limit Reached")
+	else:
 		#print("Can you add more aliens?" + str(alien.get_supply_level() + Global.attack_supply <= Global.max_attack_supply))
 		#print("Attack Supply: " + str(Global.attack_supply))
 		#print("Max Attack Supply:" + str(Global.max_attack_supply))
@@ -36,6 +42,3 @@ func update_array(alien_level: int, alien: Node2D):
 		
 		#print(Global.current_attacking_alien_array)
 		Global._save()
-	else:
-		alien._return_to_previous_or_initial()
-		print("Attack Supply Limit Reached")

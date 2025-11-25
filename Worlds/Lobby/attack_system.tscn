@@ -7,17 +7,17 @@
 script = ExtResource("1_phgm1")
 
 [node name="Tile2" parent="." groups=["AttackTile"] instance=ExtResource("1_46srh")]
-position = Vector2(63, 169)
+position = Vector2(292, 177)
 
 [node name="Label" type="Label" parent="."]
-offset_left = 26.0
-offset_top = 222.0
-offset_right = 104.0
-offset_bottom = 245.0
+offset_left = 255.0
+offset_top = 230.0
+offset_right = 336.0
+offset_bottom = 253.0
 text = "Attack Tile"
 
 [node name="SupplyLabel" type="Label" parent="."]
-offset_left = 40.0
-offset_top = 85.0
-offset_right = 80.0
-offset_bottom = 108.0
+offset_left = 269.0
+offset_top = 93.0
+offset_right = 309.0
+offset_bottom = 116.0
