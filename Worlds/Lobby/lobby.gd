@@ -51,7 +51,7 @@ func _ready() -> void:
 	tiles = get_tree().get_nodes_in_group("dropable") 
 	var filtered_tiles = []
 	for tile in tiles:
-		if not tile.is_in_group("QuestTile"):
+		if not tile.is_in_group("QuestTile") and not tile.is_in_group("AttackTile"):
 			filtered_tiles.append(tile)
 	tiles = filtered_tiles
 
@@ -103,7 +103,7 @@ func load_aliens() -> void:
 func _spawn_alien_of_level(level: int) -> void:
 	# find a free tile
 	for tile in tiles:
-		if tile._is_occupied() == false and not tile.is_in_group("QuestTile"):
+		if tile._is_occupied() == false and not tile.is_in_group("QuestTile") and not tile.is_in_group("AttackTile"):
 			var alien: PinkAlien = ALIEN_1.instantiate()
 			add_child(alien)
 			alien.global_position = tile.global_position
@@ -152,7 +152,7 @@ func spawn_alien_pink(pos: Vector2):
 	
 		tiles = get_tree().get_nodes_in_group("dropable")
 		for tile in tiles:
-			if tile._is_occupied() == false and not tile.is_in_group("QuestTile"):
+			if tile._is_occupied() == false and not tile.is_in_group("QuestTile") and not tile.is_in_group("AttackTile"):
 				emit_particles(alien_eggs.global_position)
 				var alien: PinkAlien = ALIEN_1.instantiate()
 				add_child(alien)
@@ -191,45 +191,12 @@ func _on_debug_button_pressed() -> void:
 	
 func emit_particles(pos: Vector2):
 	pink_particles_effect.global_position = pos
-	
-	# Create gradient texture from colors
-	#var gradient = create_gradient(gradient_colors)
-	#var gradient_texture = create_gradient_texture(gradient)
 
-	# Set properties directly on CPUParticles2D node
-	#pink_particles_effect.color_ramp = gradient_texture
 	pink_particles_effect.gravity = Vector2(0, 100)
 	pink_particles_effect.initial_velocity_min = 100
 	pink_particles_effect.initial_velocity_max = 100
-	#pink_particles_effect.angle = 0
-	#pink_particles_effect.angle_random = 1.0
-	#pink_particles_effect.scale = Vector2(1, 1)
-	#pink_particles_effect.scale_random = 0.5
-	#pink_particles_effect.direction = Vector2(0, -1)
-	#pink_particles_effect.spread = 180.0
 
-	# Restart the effect
-	#pink_particles_effect.emitting = false
 	pink_particles_effect.emitting = true
-
-	
-#func create_gradient(colors: Array[Color]) -> Gradient:
-	#var grad := Gradient.new()
-	#var offsets := []
-	#var steps := colors.size()
-	#
-	#for i in range(steps):
-		#offsets.append(float(i) / float(steps - 1))
-	#
-	#grad.colors = colors
-	#grad.offsets = offsets
-	#return grad
-#
-#
-#func create_gradient_texture(gradient: Gradient) -> GradientTexture1D:
-	#var texture := GradientTexture1D.new()
-	#texture.gradient = gradient
-	#return texture
 
 
 func _on_save_button_pressed() -> void:

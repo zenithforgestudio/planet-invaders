@@ -6,7 +6,7 @@
 [node name="AttackSystem" type="Node2D"]
 script = ExtResource("1_phgm1")
 
-[node name="Tile2" parent="." groups=["AttackTile", "QuestTile"] instance=ExtResource("1_46srh")]
+[node name="Tile2" parent="." groups=["AttackTile"] instance=ExtResource("1_46srh")]
 position = Vector2(63, 169)
 
 [node name="Label" type="Label" parent="."]
@@ -14,4 +14,10 @@ offset_left = 26.0
 offset_top = 222.0
 offset_right = 104.0
 offset_bottom = 245.0
-text = "Quest Tile"
+text = "Attack Tile"
+
+[node name="SupplyLabel" type="Label" parent="."]
+offset_left = 40.0
+offset_top = 85.0
+offset_right = 80.0
+offset_bottom = 108.0

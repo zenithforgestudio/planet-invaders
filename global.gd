@@ -16,7 +16,10 @@ var london_time: String = ""
 var http_node_london_time: HTTPRequest
 var mutagen: int
 var current_alien_request_array: Array = [0, 0, 0, 0, 0, 0, 0, 0]
+var current_attacking_alien_array: Array = [0, 0, 0, 0, 0, 0, 0, 0] 
 var quest_reward_count: int = 5
+var attack_supply: int = 0
+var max_attack_supply: int = 8
 
 # Saved Data
 enum { ALIEN_TYPE_COUNT = 9 }
@@ -35,7 +38,9 @@ var constent_to_save: Dictionary = {
 	"last_exit_time": "",
 	"last_exit_unix_time": 0,
 	"london_time": "",
-	"texture_progress_max_value": 1000
+	"texture_progress_max_value": 1000,
+	"attack_supply": 0,
+	"max_attack_supply": 8
 }
 
 func _ready() -> void:
@@ -156,6 +161,10 @@ func _save():
 	constent_to_save["vertical_tile_count"] = vertical_tile_count
 	constent_to_save["quest_aliens_frequency"] = current_alien_request_array
 	constent_to_save["quest_reward_count"] = quest_reward_count
+	constent_to_save["combat_aliens_frequency"] = current_attacking_alien_array
+	constent_to_save["attack_supply"] = attack_supply
+	constent_to_save["max_attack_supply"] = max_attack_supply
+	
 
 	var file = FileAccess.open_encrypted_with_pass(SAVE_LOCATION, FileAccess.WRITE, SAVE_PASS)
 	file.store_var(constent_to_save)
@@ -187,6 +196,11 @@ func _load():
 	mutagen = constent_to_save["mutagen_count"]
 	current_alien_request_array = constent_to_save["quest_aliens_frequency"].duplicate()
 	quest_reward_count = constent_to_save["quest_reward_count"]
+	current_attacking_alien_array = constent_to_save["combat_aliens_frequency"].duplicate()
+	max_attack_supply = constent_to_save["max_attack_supply"] 
+	attack_supply = constent_to_save["attack_supply"]
+	
+	
 
 	print("[LOAD] Last local exit time:", constent_to_save["last_exit_time"])
 

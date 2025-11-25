@@ -46,8 +46,9 @@ func _ready() -> void:
 	
 	
 func update_array(alien_level: int, alien: Node2D):
-	if self.is_in_group("QuestTile"):
+	if self.is_in_group("QuestTile") or self.is_in_group("AttackTile"):
 		get_parent().update_array(alien_level, alien)
+	
 
 
 

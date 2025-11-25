@@ -87,7 +87,10 @@ func _on_drag_release() -> void:
 		body_ref.update_array(self.get_current_evolution_level(), self)
 		emit_signal("board_changed")
 		return
-	if body_ref.is_occupied:
+	elif body_ref.is_in_group("AttackTile"):
+		body_ref.update_array(self.get_current_evolution_level(), self)
+		emit_signal("board_changed")
+	elif body_ref.is_occupied:
 		_handle_occupied_drop(body_ref)
 	else:
 		_handle_free_drop(body_ref)
@@ -303,6 +306,9 @@ func increase_current_evolution():
 
 	var tween2 = get_tree().create_tween()
 	tween2.tween_property(self, "scale", Vector2(1, 1), 0.2).set_ease(Tween.EASE_OUT)
+
+func get_supply_level() -> int:
+	return pow(2, get_current_evolution_level() - 1)
 
 func assign_tile(tile: Tile):
 	current_tile = tile
